@@ -75,3 +75,37 @@
 		"mobile"
 	]
 }
+{
+	"id" : "IntesisBoxWMP",
+	"name" : "IntesisBox",
+	"description" : {
+		"fr_FR": "Plugin pour l'integration des interfaces IntesisBox"
+	},
+	"licence" : "AGPL",
+	"author" : "Nooblenabot",
+	"require" : "4.3.7",
+	"category" : "wellness",
+	"hasDependency" : false,
+	"hasOwnDeamon" : false,
+	"maxDependancyInstallTime" : 0,
+	"pluginVersion" : "1.3.1",
+	"changelog" : "https://github.com/nooblenabot/jeedom-plugin-IntesisBoxWMP/commits/master",
+	"documentation" : "https://nooblenabot.github.io/jeedom-plugin-IntesisBoxWMP/#language#/",
+	"changelog_beta" : "https://github.com/nooblenabot/jeedom-plugin-IntesisBoxWMP/commits/Beta",
+	"documentation_beta" : "https://nooblenabot.github.io/jeedom-plugin-IntesisBoxWMP/#language#/beta/",
+	"link" : {
+		"forum":"https://community.jeedom.com/t/intesisboxwmp-gestion-des-climatiseur-et-pac-en-local-avec-les-boitiers-intesisbox/2596"
+	},
+	"language": [
+		"fr_FR"
+	],
+	"compatibility": [
+		"miniplus",
+		"smart",
+		"rpi",
+		"docker",
+		"diy",
+		"v4",
+		"atlas"
+	]
+}

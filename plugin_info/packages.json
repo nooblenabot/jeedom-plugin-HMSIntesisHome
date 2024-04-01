@@ -16,3 +16,19 @@
   "post-install": {
   }
 }
+{
+  "pre-install": {
+  },
+  "apt": {
+  },
+  "pip3": {
+  },
+  "npm": {
+  },
+  "yarn": {
+  },
+  "plugin": {
+  },
+  "post-install": {
+  }
+}
