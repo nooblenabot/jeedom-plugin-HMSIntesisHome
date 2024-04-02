@@ -23,15 +23,13 @@ ainsi que le manuel pour la mise en place.
 
 Certain boitiers peuvent nescessiter des connecteurs supplémentaires a acquerir en plus. Se renseigner aupres du constricteur de votre PAC/Climatiseur ou de votre installateur.
 
-__Je n'assure pas de support sur les boitiers. je ne fait pas parti de l'entreprise__
-
 
 Configuration du plugin
 ===
 
 Installer et joindre le boitier à votre réseau.
 
-__si possible privilégier une adresse IP fixe. Je ne rentre pas dans les détails, il existe suffisamment de tutoriels pour cela.__
+__si possible privilégier une adresse IP fixe.__
 
 Après téléchargement, il vous suffit d'activer celui-ci. il n'y a aucune configuration a ce niveau.
 
@@ -50,13 +48,13 @@ voici les paramètres disponibles :
 * Visible : rend votre équipement visible sur le dashboard,
 * Type d'IntesisBox : Certains boitiers ne prenent pas en charge toutes les commandes disponibles. Choisir le type de boitier mis en place.
 * Adresse IP : Adresse IP du boitier.
-* Port de communication (désactivé) : Le port par lequel Jeedom envoie les commandes au boitier. **Rempli lors de la sauvegarde et n'est pas modifiable.**
-* Identifiant Climatiseur (désactivé) : Identifiant du climatisuer sur le bus télécommande. **Rempli lors de la sauvegarde et n'est pas modifiable.**
+* Port de communication : Le port par lequel Jeedom envoie les commandes au boitier. **Rempli lors de la sauvegarde.**
+* Identifiant Climatiseur : Identifiant du climatisuer sur le bus télécommande. **Rempli lors de la sauvegarde.**
 * Présence volets : **Désactivé. en cours de prise en charge** Permet de définir si on shouaite de créer les commandes et piloter les flux de ventilation.
 
 ## Commandes.
 
-Les commandes sont crées lors de la sauvegarde du plugin. et actualisées a chaque sauvegarde.
+Les commandes sont crées lors de la sauvegarde du plugin.
 Il est toutefois possible de rajouter des commandes si besoin.
 
 voir [les specifications du boitier pour les commandes disponibles]( https://www.intesisbox.com/intesis/product/media/intesisbox_wmp_protocol_specs_en.pdf?v=2.2)
@@ -71,8 +69,9 @@ chaque commande dispose de son retour d'état a chaque éxécution.
 
 ## Cron et interrogations regulières.
 
-un cron est en cours de nise en place pour l'actualisation regulières.
-pour l'instant ajouter la commande d'actualisation globale si on shouaite un retour d'etat régulier.
+Le cron jeedom est utilisé
+rafraichissement toutes les 5 minutes pour le retour de température
+intérrogation complete  tous les 1/4 d'heures
 
 Bug et Contribution
 ===
