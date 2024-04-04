@@ -1,18 +1,80 @@
-# Plugin template
+# jeedom-plugin-IntesisBoxWMP
 
-Ce "template de plugin" sert de base à la réalisation de plugins pour **Jeedom**.
+integrate IntesisBox to Jeedom.
 
-La documentation générale relative à la conception de plugin est consultable [ici](https://doc.jeedom.com/fr_FR/dev/).
+use wifi IntesisBox and send ASCII command
 
-Dans le détail :   
-* [Utilisation du template de plugin](https://doc.jeedom.com/fr_FR/dev/plugin_template) : Le template de plugin est une base de plugin pour Jeedom qui doit être adaptée avec l'id de votre plugin et à laquelle il suffit d'ajouter vos propres fonctions.
+Description 
+===
 
-* [Fichier info.json](https://doc.jeedom.com/fr_FR/dev/structure_info_json) : Intégré depuis la version 3.0 de Jeedom, le fichier **info.json** est obligatoire pour le bon fonctionnement des plugins et leur bon déploiement sur le Market Jeedom.
+Plugin servant a l'intégration des boitiers IntesisBox WIFI a Jeedom.
 
-* [Icône du plugin](https://doc.jeedom.com/fr_FR/dev/Icone_de_plugin) : Afin de pouvoir être publié sur le Market Jeedom, tout plugin doit disposer d’une icône. Attention à ne pas utiliser le même code couleur que les icônes des plugins Jeedom officiels.
+__Ne fonctionne pas avec le modele IntesisHome__
 
-* [Widget du plugin](https://doc.jeedom.com/fr_FR/dev/widget_plugin) : Présentation des différentes manières d'inclure des widgets personnalisés au plugin.
+Le modele IntesisBox Wifi est prévu pour recevoir des commandes ASCII et les retranscrit a un climatiseur/PAC/HVAC pour se subsituer a la telecommande filaire
+ce dernier fonctionne en local et ne néscessite pas de connexion internet.
 
-* [Documentation du plugin](https://doc.jeedom.com/fr_FR/dev/documentation_plugin) : Présentation de la mise en place d'une documentation car un bon plugin n'est rien sans documentation adéquate.
+__Il est nescessaire de brancher le boitier sur le bus télécommande du bloc interne.__  
+__Passer par un installateur pour le branchement est fortement recommandé.__  
+__Bien couper l'alimentation élèctrique du circuit alimentant l'unité interne lors du raccordement.__  
 
-* [Publication du plugin](https://doc.jeedom.com/fr_FR/dev/publication_plugin) : Description des pré-requis indispensables à la publication du plugin.
+Verifier la compatibilité sur https://www.intesisbox.com/en/wifi/gateways/
+ainsi que le manuel pour la mise en place.
+
+Certain boitiers peuvent nescessiter des connecteurs supplémentaires a acquerir en plus. Se renseigner aupres du constricteur de votre PAC/Climatiseur ou de votre installateur.
+
+
+Configuration du plugin
+===
+
+Installer et joindre le boitier à votre réseau.
+
+__si possible privilégier une adresse IP fixe.__
+
+Après téléchargement, il vous suffit d'activer celui-ci. il n'y a aucune configuration a ce niveau.
+
+## Configuration de l'équipement.
+
+La configuration/Ajout d'un equipement est accessible dans le menu plugin puis Confort et IntesisBox.
+
+voici les paramètres disponibles : 
+
+![configuration des equipements](/docs/images/Config_object.png)
+
+* Nom de l'équipement IntesisBox : nom de votre équipement IntesisBox,
+* Objet parent : indique l'objet parent auquel appartient l'équipement,
+* Catégorie : les catégories de l'équipement (il peut appartenir à plusieurs catégories).
+* Activer : permet de rendre votre équipement actif,
+* Visible : rend votre équipement visible sur le dashboard,
+* Type d'IntesisBox : Certains boitiers ne prenent pas en charge toutes les commandes disponibles. Choisir le type de boitier mis en place.
+* Adresse IP : Adresse IP du boitier.
+* Port de communication : Le port par lequel Jeedom envoie les commandes au boitier. **Rempli lors de la sauvegarde.**
+* Identifiant Climatiseur : Identifiant du climatisuer sur le bus télécommande. **Rempli lors de la sauvegarde.**
+* Présence volets : **Désactivé. en cours de prise en charge** Permet de définir si on shouaite de créer les commandes et piloter les flux de ventilation.
+
+## Commandes.
+
+Les commandes sont crées lors de la sauvegarde du plugin.
+Il est toutefois possible de rajouter des commandes si besoin.
+
+voir [les specifications du boitier pour les commandes disponibles]( https://www.intesisbox.com/intesis/product/media/intesisbox_wmp_protocol_specs_en.pdf?v=2.2)
+
+Exemple avec la commande d'actualisation globale :
+
+![commande d'actualisation globale](/docs/images/commande_globale.png)
+
+Une actualisation du plugin a lieu a chaque sauvegarde.
+
+chaque commande dispose de son retour d'état a chaque éxécution.
+
+## Cron et interrogations regulières.
+
+Le cron jeedom est utilisé
+rafraichissement toutes les 5 minutes pour le retour de température
+intérrogation complete  tous les 1/4 d'heures
+
+Bug et Contribution
+===
+En cas de bug avéré du plugin il est possible d'ouvrir une issue :
+
+https://github.com/nooblenabot/jeedom-plugin-IntesisBoxWMP/issues

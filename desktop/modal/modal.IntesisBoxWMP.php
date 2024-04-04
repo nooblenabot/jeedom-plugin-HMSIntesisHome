@@ -1,4 +1,5 @@
 <?php
+
 /* This file is part of Jeedom.
 *
 * Jeedom is free software: you can redistribute it and/or modify
@@ -15,9 +16,7 @@
 * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
 */
 
-require_once __DIR__  . '/../../../../core/php/core.inc.php';
-/*
-*
-* Fichier d’inclusion si vous avez plusieurs fichiers de class ou 3rdParty à inclure
-*
-*/
+if (!isConnect('admin')) {
+    throw new Exception('{{401 - Accès non autorisé}}');
+}
+?>
